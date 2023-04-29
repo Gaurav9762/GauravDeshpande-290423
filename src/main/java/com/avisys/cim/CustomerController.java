@@ -3,9 +3,15 @@ package com.avisys.cim;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 @RestController
 public class CustomerController {
@@ -71,5 +77,28 @@ public class CustomerController {
 		System.out.println(cust);
 		System.out.println("fname: "+mobno);
 		return cust ;
+	
 	}
+	
+	//This method is for inserting new customer record.
+	//If mobile number dosen't exists then record is added to database.
+	//If mobile number already exists in database returns customized error message in response. 
+	@PostMapping("/addCustomer")
+	public ResponseEntity<String> addCustomer(@RequestBody Customer p)
+	{
+		if (custservice.existsByMobileNumber(p.getMobileNumber())) {
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	                .body("Unable to create Customer. Mobile number already present.");
+	    }
+	    
+	    // Create new customer
+	    Customer newCustomer = custservice.save(p);
+	    return ResponseEntity.ok("Customer created successfully.");
+
+		
+//		return custservice.save(p);
+		
+	}
+	
+	
 }

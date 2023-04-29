@@ -30,4 +30,26 @@ public class CustomerService {
 		return customerrepo.getCustomerByNumber(mobno);
 	}
 
+	public Customer save(Customer p) {
+		// TODO Auto-generated method stub
+		return customerrepo.save(p);
+	}
+
+	//This method is used for checking whether the customer exists in database for provided customer's mobile
+	//number and returns boolean.
+	public boolean existsByMobileNumber(String mobileNumber) {
+		// TODO Auto-generated method stub
+		Customer c = customerrepo.getCustomerByNumber(mobileNumber);
+		
+		
+		if(c != null)
+		{
+			return true;
+		}else
+		{
+		  return false;	
+		}
+		
+	}
+
 }
