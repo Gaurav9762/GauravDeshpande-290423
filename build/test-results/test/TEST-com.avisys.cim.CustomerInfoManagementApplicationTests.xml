@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.avisys.cim.CustomerInfoManagementApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-29T05:58:19" hostname="DESKTOP-1R2DV53" time="0.522">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.avisys.cim.CustomerInfoManagementApplicationTests" time="0.522"/>
+  <system-out><![CDATA[11:28:02.958 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [CustomerInfoManagementApplicationTests]: using SpringBootContextLoader
+11:28:02.987 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.avisys.cim.CustomerInfoManagementApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+11:28:02.992 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.avisys.cim.CustomerInfoManagementApplicationTests]: CustomerInfoManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:28:03.110 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [CustomerInfoManagementApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+11:28:03.473 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\Gaurav\Desktop\cdac-java-test\build\classes\java\main\com\avisys\cim\CustomerInfoManagementApplication.class]
+11:28:03.477 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.avisys.cim.CustomerInfoManagementApplication for test class com.avisys.cim.CustomerInfoManagementApplicationTests
+11:28:03.976 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [CustomerInfoManagementApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+11:28:03.983 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [CustomerInfoManagementApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.6)
+
+2023-04-29T11:28:05.218+05:30  INFO 22056 --- [    Test worker] c.CustomerInfoManagementApplicationTests : Starting CustomerInfoManagementApplicationTests using Java 17.0.3 with PID 22056 (started by Gaurav in C:\Users\Gaurav\Desktop\cdac-java-test)
+2023-04-29T11:28:05.223+05:30  INFO 22056 --- [    Test worker] c.CustomerInfoManagementApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2023-04-29T11:28:08.087+05:30  INFO 22056 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-29T11:28:08.160+05:30  INFO 22056 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 0 JPA repository interfaces.
+2023-04-29T11:28:09.757+05:30  INFO 22056 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-29T11:28:10.079+05:30  INFO 22056 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-29T11:28:11.344+05:30  INFO 22056 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-29T11:28:12.147+05:30  INFO 22056 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:h2db user=SA
+2023-04-29T11:28:12.154+05:30  INFO 22056 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-29T11:28:12.247+05:30  INFO 22056 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-29T11:28:15.505+05:30  INFO 22056 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-29T11:28:15.558+05:30  INFO 22056 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-29T11:28:18.739+05:30  INFO 22056 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:h2db'
+2023-04-29T11:28:19.086+05:30  INFO 22056 --- [    Test worker] c.CustomerInfoManagementApplicationTests : Started CustomerInfoManagementApplicationTests in 14.879 seconds (process running for 20.075)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
