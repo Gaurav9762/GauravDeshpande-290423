@@ -61,7 +61,6 @@ public class CustomerService {
 		// TODO Auto-generated method stub
 		Customer_MobileNo c = custmobrepo.getCustomerByNumber(mobileNumber);
 		
-		
 		if(c != null)
 		{
 			return true;
@@ -74,8 +73,13 @@ public class CustomerService {
 
 	public List<Customer_MobileNo> fetchMobileNo() {
 		
-		
 		return custmobrepo.findAll();
 	}
+
+//	public void deleteCustomerByMobileNumber(String mobileNo) {
+//		
+//		Customer_MobileNo customerForId = custmobrepo.getCustomerByNumber(mobileNo);
+//		System.out.println("customer******----*****==="+customerForId.toString());		
+//	}
 
 }

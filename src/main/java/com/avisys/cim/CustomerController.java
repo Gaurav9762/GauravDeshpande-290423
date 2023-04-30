@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,20 +25,14 @@ public class CustomerController {
 	CustomerService custservice;
 	
 	
-	
-	
 	//1. Get Customer information over an REST API call
 	
 	//This method is for fetching all customer details .
 	@GetMapping("/fetchAllCustomer")
 	public List<Customer> getAllCustomers()
 	{
-		
 		List< Customer> list = custservice.getAllCustomers();
-//		for (Customer c : list) {
-//			
-//			System.out.println(c);
-//		}
+
 		return list;
 	}
 	
@@ -63,14 +59,15 @@ public class CustomerController {
 	{
 		List<Customer> cust =custservice.getCustomerByLastName(lname);
 		
-		System.out.println(cust);
-		System.out.println("fname: "+lname);
+		
 		return cust ;
 	}
 	
 	//This method is for fetching customer details by using mobile number.
 	
 	//For this method I have written JPQL query in repository .
+	
+	
 //	********** this method will not work now because we have to change the code for 3rd requirement *******
 	
 //	@GetMapping("/fetchByNumber")
@@ -119,6 +116,12 @@ public class CustomerController {
 		
 		return list;	
 	}
+//5. Ability to delete over REST API
+//	@DeleteMapping("/deleteByMobileNumber")
+//	public void deleteCustomerByMobileNumber(@RequestParam("mobno") String mobileNo)
+//	{
+//		custservice.deleteCustomerByMobileNumber(mobileNo);		
+//	}
 	
 	
 }
