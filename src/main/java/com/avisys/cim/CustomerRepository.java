@@ -23,8 +23,8 @@ public interface CustomerRepository extends JpaRepository<Customer,Long> {
 	@Query("SELECT c FROM Customer c WHERE c.lastName LIKE %:lname%")
 	List<Customer> getCustomerByLastName(@Param("lname") String lname);
 
-	@Query("SELECT c FROM Customer c WHERE c.mobileNumber = :mobno")
-	Customer getCustomerByNumber(@Param("mobno") String mobno);
+//	@Query("SELECT c FROM Customer c WHERE c.mobileNumber = :mobno")
+//	Customer getCustomerByNumber(@Param("mobno") int mobno);
 
 
 	

@@ -7,24 +7,30 @@
 	"item": [
 		{
 			"name": "Fetching",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n        \r\n         \"firstName\": \"Alan\",\r\n         \"lastName\": \"Smith\",\r\n        \"custmob\": [\r\n            {\r\n\r\n            \"mobile_number\": \"0123456789\"\r\n            },\r\n            {\r\n\r\n            \"mobile_number\": \"7896547894\"\r\n         }\r\n        ]\r\n\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/fetchByFirstName?fname=Jo",
+					"raw": "http://localhost:8080/fetchAllCustomer",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"fetchByFirstName"
-					],
-					"query": [
-						{
-							"key": "fname",
-							"value": "Jo"
-						}
+						"fetchAllCustomer"
 					]
 				}
 			},
@@ -226,6 +232,268 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"id\": 2,\n    \"firstName\": \"Joe\",\n    \"lastName\": \"Turing\",\n    \"mobileNumber\": \"9111111112\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "InsertingNewCustomerRecord",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"id\":8,\r\n    \"firstName\": \"Gaurav\",\r\n    \"lastName\": \"Deshpande\",\r\n    \"mobileNumber\": \"9762719519\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addCustomer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Apr 2023 11:50:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Customer created successfully."
+				},
+				{
+					"name": "ShowingErrorMessageIfMobileNoExists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"id\":9,\r\n    \"firstName\": \"Gaurav\",\r\n    \"lastName\": \"Deshpande\",\r\n    \"mobileNumber\": \"9762719519\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addCustomer"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 29 Apr 2023 12:10:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Unable to create Customer. Mobile number already present."
+				}
+			]
+		},
+		{
+			"name": "FetchingWithMultipleMobileNumbers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n        \r\n         \"firstName\": \"Alan\",\r\n         \"lastName\": \"Smith\",\r\n        \"custmob\": [\r\n            {\r\n\r\n            \"mobile_number\": \"0123456789\"\r\n            },\r\n            {\r\n\r\n            \"mobile_number\": \"7896547894\"\r\n         }\r\n        ]\r\n\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fetchAllCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fetchAllCustomer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "FetchingWithMultipleMobileNumbers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n        \r\n         \"firstName\": \"Alan\",\r\n         \"lastName\": \"Smith\",\r\n        \"custmob\": [\r\n            {\r\n\r\n            \"mobile_number\": \"0123456789\"\r\n            },\r\n            {\r\n\r\n            \"mobile_number\": \"7896547894\"\r\n         }\r\n        ]\r\n\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/fetchAllCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fetchAllCustomer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Apr 2023 10:56:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"firstName\": \"Alan\",\n        \"lastName\": \"Smith\",\n        \"custmob\": [\n            {\n                \"mobid\": 1,\n                \"mobile_number\": \"1234567899\"\n            },\n            {\n                \"mobid\": 2,\n                \"mobile_number\": \"2222222222\"\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"firstName\": \"Joe\",\n        \"lastName\": \"Turing\",\n        \"custmob\": [\n            {\n                \"mobid\": 3,\n                \"mobile_number\": \"9876543211\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"John\",\n        \"lastName\": \"Smith\",\n        \"custmob\": [\n            {\n                \"mobid\": 4,\n                \"mobile_number\": \"4444444444\"\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"firstName\": \"Kathy\",\n        \"lastName\": \"Sierra\",\n        \"custmob\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "AddCustomerWithMultipleMobileNumber",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "AddCustomerWithMultipleMobileNumber",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n        \r\n         \"firstName\": \"Gogo\",\r\n         \"lastName\": \"Deshpande\",\r\n        \"custmob\": [\r\n            {\r\n\r\n            \"mobile_number\": \"8983086302\"\r\n            },\r\n            {\r\n\r\n            \"mobile_number\": \"4879585588\"\r\n         },\r\n          {\r\n\r\n            \"mobile_number\": \"6987555865\"\r\n         }\r\n        ]\r\n\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addCustomer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Apr 2023 11:02:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Customer created successfully."
 				}
 			]
 		}

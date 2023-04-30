@@ -23,6 +23,8 @@ public class CustomerController {
 	CustomerService custservice;
 	
 	
+	
+	
 	//1. Get Customer information over an REST API call
 	
 	//This method is for fetching all customer details .
@@ -31,10 +33,10 @@ public class CustomerController {
 	{
 		
 		List< Customer> list = custservice.getAllCustomers();
-		for (Customer c : list) {
-			
-			System.out.println(c);
-		}
+//		for (Customer c : list) {
+//			
+//			System.out.println(c);
+//		}
 		return list;
 	}
 	
@@ -68,29 +70,37 @@ public class CustomerController {
 	
 	//This method is for fetching customer details by using mobile number.
 	
-	//For this method I have written JPQL query in repository . 
-	@GetMapping("/fetchByNumber")
-	public Customer getCustomerByNumber(@RequestParam("mobno") String mobno)
-	{
-		Customer cust =custservice.getCustomerByNumber(mobno);
-		
-		System.out.println(cust);
-		System.out.println("fname: "+mobno);
-		return cust ;
+	//For this method I have written JPQL query in repository .
+//	********** this method will not work now because we have to change the code for 3rd requirement *******
 	
-	}
+//	@GetMapping("/fetchByNumber")
+//	public Customer getCustomerByNumber(@RequestParam("mobno") int mobno)
+//	{
+//		Customer cust =custservice.getCustomerByNumber(mobno);
+//		
+//		System.out.println(cust);
+//		System.out.println("fname: "+mobno);
+//		return cust ;
+//	
+//	}
 	
 	//This method is for inserting new customer record.
 	//If mobile number dosen't exists then record is added to database.
 	//If mobile number already exists in database returns customized error message in response. 
+	
+	
+	
 	@PostMapping("/addCustomer")
 	public ResponseEntity<String> addCustomer(@RequestBody Customer p)
 	{
-		if (custservice.existsByMobileNumber(p.getMobileNumber())) {
+		for(Customer_MobileNo custmob : p.getCustmob())
+		{
+		
+		if (custservice.existsByMobileNumber(custmob.getMobile_number())) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 	                .body("Unable to create Customer. Mobile number already present.");
 	    }
-	    
+		}
 	    // Create new customer
 	    Customer newCustomer = custservice.save(p);
 	    return ResponseEntity.ok("Customer created successfully.");
@@ -98,6 +108,16 @@ public class CustomerController {
 		
 //		return custservice.save(p);
 		
+	}
+	
+	//3. Modify the application to support multiple mobile number for a single customer.
+	@GetMapping("/getMobnumber")
+	public List<Customer_MobileNo>fetchMobileNo()
+	{
+
+		List< Customer_MobileNo> list = custservice.fetchMobileNo();
+		
+		return list;	
 	}
 	
 	
